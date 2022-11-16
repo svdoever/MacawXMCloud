@@ -23,7 +23,7 @@ export const Default = (props: SergeTextProps): JSX.Element => {
 
   return (
     <div
-      className={`component rich-text ${props.params.styles.trimEnd()}`}
+      className={`component rich-text ${props?.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="component-content">
@@ -45,7 +45,7 @@ export const MoreSerge = (props: SergeTextProps): JSX.Element => {
 
   return (
     <div
-      className={`component rich-text ${props.params.styles.trimEnd()}`}
+      className={`component rich-text ${props?.params?.styles?.trimEnd()}`}
       id={id ? id : undefined}
     >
       <div className="component-content">
