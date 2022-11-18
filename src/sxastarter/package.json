@@ -66,6 +66,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-yaml": "^0.2.0",
     "graphql-let": "^0.16.2",
+    "localtunnel": "^2.0.2",
     "npm-run-all": "~4.1.5",
     "prettier": "^2.1.2",
     "sass": "^1.52.3",
@@ -86,6 +87,7 @@
     "scaffold": "ts-node --project tsconfig.scripts.json scripts/scaffold-component.ts",
     "start:connected": "npm-run-all --serial bootstrap --parallel next:dev start:watch-components",
     "start:production": "npm-run-all --serial bootstrap next:build next:start",
-    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch"
+    "start:watch-components": "ts-node --project tsconfig.scripts.json scripts/generate-component-factory.ts --watch",
+    "prettier": "prettier --write ./src/**/*.tsx ./src/**/*.ts ./scripts/**/*.ts"
   }
 }

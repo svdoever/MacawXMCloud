@@ -1,11 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Link,
-  LinkField,
-  Text,
-  TextField,
-  useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Link, LinkField, Text, TextField, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   Id: string;
@@ -50,10 +44,7 @@ const getLinkField = (props: NavigationProps): LinkField => ({
 export const Default = (props: NavigationProps): JSX.Element => {
   const [isOpenMenu, openMenu] = useState(false);
   const { sitecoreContext } = useSitecoreContext();
-  const styles =
-    props.params != null
-      ? `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd()
-      : '';
+  const styles = props.params != null ? `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd() : '';
   const id = props.params != null ? props.params.RenderingIdentifier : null;
 
   if (!Object.values(props.fields).length) {
@@ -90,12 +81,7 @@ export const Default = (props: NavigationProps): JSX.Element => {
   return (
     <div className={`component navigation ${styles}`} id={id ? id : undefined}>
       <label className="menu-mobile-navigate-wrapper">
-        <input
-          type="checkbox"
-          className="menu-mobile-navigate"
-          checked={isOpenMenu}
-          onChange={() => handleToggleMenu()}
-        />
+        <input type="checkbox" className="menu-mobile-navigate" checked={isOpenMenu} onChange={() => handleToggleMenu()} />
         <div className="menu-humburger" />
         <div className="component-content">
           <nav>
@@ -113,27 +99,14 @@ const NavigationList = (props: NavigationProps) => {
   let children: JSX.Element[] = [];
   if (props.fields.Children && props.fields.Children.length) {
     children = props.fields.Children.map((element: Fields, index: number) => (
-      <NavigationList
-        key={`${index}${element.Id}`}
-        fields={element}
-        handleClick={props.handleClick}
-        relativeLevel={props.relativeLevel + 1}
-      />
+      <NavigationList key={`${index}${element.Id}`} fields={element} handleClick={props.handleClick} relativeLevel={props.relativeLevel + 1} />
     ));
   }
 
   return (
-    <li
-      className={props.fields.Styles.concat('rel-level' + props.relativeLevel).join(' ')}
-      key={props.fields.Id}
-      tabIndex={0}
-    >
+    <li className={props.fields.Styles.concat('rel-level' + props.relativeLevel).join(' ')} key={props.fields.Id} tabIndex={0}>
       <div className="navigation-title">
-        <Link
-          field={getLinkField(props)}
-          editable={sitecoreContext.pageEditing}
-          onClick={props.handleClick}
-        >
+        <Link field={getLinkField(props)} editable={sitecoreContext.pageEditing} onClick={props.handleClick}>
           {getNavigationText(props)}
         </Link>
       </div>

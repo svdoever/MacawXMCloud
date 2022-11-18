@@ -17,8 +17,7 @@ export interface PackageDefinition {
 
 const isLazyLoadingModule = (componentPath: string) => componentPath.includes('.dynamic');
 
-const removeDynamicModuleNameEnding = (moduleName: string) =>
-  moduleName.replace(/\.?dynamic$/i, '');
+const removeDynamicModuleNameEnding = (moduleName: string) => moduleName.replace(/\.?dynamic$/i, '');
 
 /**
  * Generates the contents of the component factory file using a predefined string template.
@@ -26,12 +25,8 @@ const removeDynamicModuleNameEnding = (moduleName: string) =>
  * @returns component factory file contents
  */
 function generateComponentFactory(components: (PackageDefinition | ComponentFile)[]): string {
-  const componentFiles = components.filter(
-    (component) => (component as ComponentFile).path
-  ) as ComponentFile[];
-  const packages = components.filter(
-    (component) => (component as PackageDefinition).components
-  ) as PackageDefinition[];
+  const componentFiles = components.filter((component) => (component as ComponentFile).path) as ComponentFile[];
+  const packages = components.filter((component) => (component as PackageDefinition).components) as PackageDefinition[];
 
   const hasLazyModules = componentFiles.find((component) => isLazyLoadingModule(component.path));
 
@@ -61,22 +56,12 @@ ${componentFiles
   .join('\n')}
 
 const components = new Map();
-${packages.map((p) =>
-  p.components.map(
-    (component) => `components.set('${component.componentName}', ${component.moduleName})`
-  )
-)}
+${packages.map((p) => p.components.map((component) => `components.set('${component.componentName}', ${component.moduleName})`))}
 ${componentFiles
   .map(
     (component) =>
-      `components.set('${
-        isLazyLoadingModule(component.path)
-          ? removeDynamicModuleNameEnding(component.componentName)
-          : component.componentName
-      }', ${
-        isLazyLoadingModule(component.path)
-          ? removeDynamicModuleNameEnding(component.moduleName)
-          : component.moduleName
+      `components.set('${isLazyLoadingModule(component.path) ? removeDynamicModuleNameEnding(component.componentName) : component.componentName}', ${
+        isLazyLoadingModule(component.path) ? removeDynamicModuleNameEnding(component.moduleName) : component.moduleName
       });`
   )
   .join('\n')}

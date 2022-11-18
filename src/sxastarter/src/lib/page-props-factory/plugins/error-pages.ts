@@ -30,11 +30,7 @@ class ErrorPagesPlugin implements Plugin {
       }
     }
 
-    if (
-      isServerSidePropsContext(context) &&
-      context.res.statusCode >= 500 &&
-      context.res.statusCode <= 511
-    ) {
+    if (isServerSidePropsContext(context) && context.res.statusCode >= 500 && context.res.statusCode <= 511) {
       const resultErrorPages = await errorPagesService.fetchErrorPages();
 
       if (resultErrorPages?.serverErrorPagePath) {

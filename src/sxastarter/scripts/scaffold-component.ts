@@ -41,11 +41,7 @@ const componentPath = regExResult[1];
 const componentName = regExResult[2];
 const filename = `${componentName}.tsx`;
 
-const componentOutputPath = scaffoldFile(
-  componentRootPath,
-  generateComponentSrc(componentName),
-  filename
-);
+const componentOutputPath = scaffoldFile(componentRootPath, generateComponentSrc(componentName), filename);
 
 console.log(
   chalk.green(`

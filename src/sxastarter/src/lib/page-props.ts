@@ -1,9 +1,5 @@
 import { Redirect } from 'next';
-import {
-  DictionaryPhrases,
-  ComponentPropsCollection,
-  LayoutServiceData,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { DictionaryPhrases, ComponentPropsCollection, LayoutServiceData } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**
  * Sitecore page props

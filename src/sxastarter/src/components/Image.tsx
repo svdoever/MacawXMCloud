@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Image as JssImage,
-  Link as JssLink,
-  ImageField,
-  Field,
-  LinkField,
-  Text,
-  useSitecoreContext,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { Image as JssImage, Link as JssLink, ImageField, Field, LinkField, Text, useSitecoreContext } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
   Image: ImageField;
@@ -55,11 +47,7 @@ export const Default = (props: ImageProps): JSX.Element => {
               <Image />
             </JssLink>
           )}
-          <Text
-            tag="span"
-            className="image-caption field-imagecaption"
-            field={props.fields.ImageCaption}
-          />
+          <Text tag="span" className="image-caption field-imagecaption" field={props.fields.ImageCaption} />
         </div>
       </div>
     );

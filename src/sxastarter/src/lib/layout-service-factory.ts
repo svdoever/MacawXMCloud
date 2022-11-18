@@ -1,9 +1,4 @@
-import {
-  LayoutService,
-  RestLayoutService,
-  GraphQLLayoutService,
-  constants,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { LayoutService, RestLayoutService, GraphQLLayoutService, constants } from '@sitecore-jss/sitecore-jss-nextjs';
 import config from 'temp/config';
 
 export class LayoutServiceFactory {

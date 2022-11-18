@@ -26,19 +26,13 @@ class PersonalizePlugin implements MiddlewarePlugin {
         endpoint: config.graphQLEndpoint,
         apiKey: config.sitecoreApiKey,
         siteName: config.jssAppName,
-        timeout:
-          (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT &&
-            parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) ||
-          250,
+        timeout: (process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT && parseInt(process.env.PERSONALIZE_MIDDLEWARE_EDGE_TIMEOUT)) || 250,
       },
       // Configuration for your Sitecore CDP endpoint
       cdpConfig: {
         endpoint: process.env.NEXT_PUBLIC_CDP_TARGET_URL || '',
         clientKey: process.env.NEXT_PUBLIC_CDP_CLIENT_KEY || '',
-        timeout:
-          (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT &&
-            parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) ||
-          250,
+        timeout: (process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT && parseInt(process.env.PERSONALIZE_MIDDLEWARE_CDP_TIMEOUT)) || 250,
       },
       // This function determines if the middleware should be turned off.
       // IMPORTANT: You should implement based on your cookie consent management solution of choice.

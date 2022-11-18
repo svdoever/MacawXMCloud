@@ -13,8 +13,7 @@ export type SergeTextProps = {
 export const Default = (props: SergeTextProps): JSX.Element => {
   const text = props.fields ? (
     <span>
-      SERGE:
-      <JssRichText field={props.fields.Text} />
+      SERGE: <JssRichText field={props.fields.Text} />
     </span>
   ) : (
     <span className="is-empty-hint">Rich text</span>
@@ -22,10 +21,7 @@ export const Default = (props: SergeTextProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <div
-      className={`component rich-text ${props?.params?.styles?.trimEnd()}`}
-      id={id ? id : undefined}
-    >
+    <div className={`component rich-text ${props?.params?.styles?.trimEnd()}`} id={id ? id : undefined}>
       <div className="component-content">
         SERGE: <span>{text}</span>
       </div>
@@ -36,7 +32,7 @@ export const Default = (props: SergeTextProps): JSX.Element => {
 export const MoreSerge = (props: SergeTextProps): JSX.Element => {
   const text = props.fields ? (
     <span>
-      MORE SERGE: <JssRichText field={props.fields.Text} />
+      MORE SERGE 2: <JssRichText field={props.fields.Text} />
     </span>
   ) : (
     <span className="is-empty-hint">Rich text</span>
@@ -44,10 +40,7 @@ export const MoreSerge = (props: SergeTextProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <div
-      className={`component rich-text ${props?.params?.styles?.trimEnd()}`}
-      id={id ? id : undefined}
-    >
+    <div className={`component rich-text ${props?.params?.styles?.trimEnd()}`} id={id ? id : undefined}>
       <div className="component-content">
         MORE SERGE: <span>{text}</span>
       </div>

@@ -1,9 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import generateComponentFactory, {
-  ComponentFile,
-  PackageDefinition,
-} from './templates/component-factory';
+import generateComponentFactory, { ComponentFile, PackageDefinition } from './templates/component-factory';
 import { getItems, watchItems } from './utils';
 
 /*
