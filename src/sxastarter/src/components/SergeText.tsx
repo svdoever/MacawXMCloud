@@ -32,7 +32,7 @@ export const Default = (props: SergeTextProps): JSX.Element => {
 export const MoreSerge = (props: SergeTextProps): JSX.Element => {
   const text = props.fields ? (
     <span>
-      MORE SERGE 2: <JssRichText field={props.fields.Text} />
+      MORE SERGE 9: <JssRichText field={props.fields.Text} />
     </span>
   ) : (
     <span className="is-empty-hint">Rich text</span>
